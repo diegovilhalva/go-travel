@@ -1,7 +1,7 @@
 import { ReactElement } from "react"
 
 interface MainProps {
-    children:ReactElement
+    children:ReactElement[]
 }
 const Main = ({children}:MainProps) => {
   return (
