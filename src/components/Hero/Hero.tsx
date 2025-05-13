@@ -12,7 +12,7 @@ const Hero = () => {
             <p className="text-[1.75rem]/10.5 text-white">Where unforgettable adventures await you.</p>
           </div>
         </div>
-        <ul className="absolute -bottom-23 mx-21.5 flex gap-x-18 rounded-[1.5rem] bg-white px-16 py-16 drop-shadow-[0px_2px_40px_rgba(0,0,0,0.6)]">
+        <ul className="absolute -bottom-23 mx-21.5 flex gap-x-18 rounded-[1.5rem] bg-white px-16 py-18 drop-shadow-[0px_2px_40px_rgba(0,0,0,0.6)]">
             {heroBenefits.map((benefit) =>(
               <HeroBenefit benefit={benefit} key={benefit.id} />
             ))}
