@@ -1,3 +1,4 @@
+import ExploreMore from "./components/ExploreMore/ExploreMore";
 import Header from "./components/Header";
 import Hero from "./components/Hero/Hero";
 import Main from "./components/Main";
@@ -18,6 +19,7 @@ function App() {
       <Steps/>
       <Services/>
       <News/>
+      <ExploreMore />
     </Main>  
   </Page>);
 }
