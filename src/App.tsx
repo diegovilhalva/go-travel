@@ -1,4 +1,5 @@
 import ExploreMore from "./components/ExploreMore/ExploreMore";
+import FrequentTraveler from "./components/FrequentTraveler";
 import Header from "./components/Header";
 import Hero from "./components/Hero/Hero";
 import Main from "./components/Main";
@@ -20,6 +21,7 @@ function App() {
       <Services/>
       <News/>
       <ExploreMore />
+      <FrequentTraveler />
     </Main>  
   </Page>);
 }
