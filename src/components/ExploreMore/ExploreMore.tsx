@@ -14,7 +14,7 @@ const ExploreMore = () => {
     const handleLeftClick = () => setCurrentIndex(prevIndex => prevIndex - 1)
 
     return (
-        <section className="px-24 py-26">
+        <section className="px-24 py-26" id="ExploreMore">
             <div className="m-auto max-w-389 ">
                 <div className="flex items-end justify-between gap-y-33">
                     <div className="">
