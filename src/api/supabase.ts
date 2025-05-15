@@ -61,6 +61,36 @@ export type Database = {
         }
         Relationships: []
       }
+      Locations: {
+        Row: {
+          id: string
+          img_alt: string
+          img_url: string
+          location: string
+          price_per_person: number
+          rating: number
+          title: string
+        }
+        Insert: {
+          id?: string
+          img_alt: string
+          img_url: string
+          location: string
+          price_per_person: number
+          rating: number
+          title: string
+        }
+        Update: {
+          id?: string
+          img_alt?: string
+          img_url?: string
+          location?: string
+          price_per_person?: number
+          rating?: number
+          title?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

@@ -1,14 +1,17 @@
 import { useState } from "react"
-import { locations } from "../../utils/content"
 import CaretUp from "../Icons/CaretUp"
 import LocationCard from "./LocationCard"
 import { LOCATION_CARDS_SHOWN } from "../../utils/costants"
+import useQueryLocations from "../../hooks/useQueryLocations"
+import Spinner from "../Spinner"
+import Error from "../Error"
 
 
 const ExploreMore = () => {
+    const {locations,error,isLoading} = useQueryLocations()
     const [currentIndex, setCurrentIndex] = useState<number>(0)
-    const totalLocations = locations.length
-    const renderLocations = locations.slice(currentIndex, currentIndex + LOCATION_CARDS_SHOWN)
+    const totalLocations = locations?.length || 0
+    const renderLocations = locations?.slice(currentIndex, currentIndex + LOCATION_CARDS_SHOWN)
 
     const handleRightClick = () => setCurrentIndex(prevIndex => prevIndex + 1)
     const handleLeftClick = () => setCurrentIndex(prevIndex => prevIndex - 1)
@@ -30,11 +33,16 @@ const ExploreMore = () => {
                         </button>
                     </div>
                 </div>
-                <ul className="mt-33 grid grid-cols-3 gap-x-29 gap-y-24">
-                    {renderLocations.map((location) => (
+                {isLoading && !error && <Spinner />}
+                {!isLoading && error && (
+                    <Error>An error has occurred while fetching the locations. </Error>
+                )}
+            
+                {!isLoading && !error && (<ul className="mt-33 grid grid-cols-3 gap-x-29 gap-y-24">
+                    {renderLocations?.map((location) => (
                         <LocationCard location={location} key={location.id} />
                     ))}
-                </ul>
+                </ul>)}
             </div>
         </section>
     )
