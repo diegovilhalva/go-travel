@@ -2,6 +2,7 @@ import { MouseEvent, useState } from "react"
 import Checkmark from "./Icons/Checkmark"
 import { useFormAndValidation } from "../hooks/useFormValidation"
 import { AnimatePresence, motion } from "motion/react"
+import useInsertLead from "../hooks/useInsertLead";
 
 interface FormState {
     currentState: "idle" | "pending" | "success" | "error";
@@ -29,19 +30,39 @@ const FrequentTraveler = () => {
         "email": ""
     })
 
+    const mutation = useInsertLead({
+        onSuccess:handleSuccess,
+        onError:handleError
+    })
+
     const handleSubmit = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
         if (isChecked && isValid) {
-            // todo form logic
+           
             setFormState({ currentState: "pending", errorMessage: null })
-
-            setTimeout(
-                () => setFormState({ currentState: "success", errorMessage: null }),
-                2000,
-            );
-
-            resetForm()
+            mutation.mutate({
+                createdAt:Date.now(),
+                fullName:values.fullName,
+                emailAddress:values.email
+            })
         }
+    }
+
+    function handleSuccess() {
+        resetForm()
+        setIsChecked(false)
+        setFormState({currentState:"success",errorMessage:null})
+        setTimeout(() => {
+            setFormState({currentState:"idle",errorMessage:null})
+        }, 2000);
+    }
+
+
+     function handleError(error:Error)  {
+        setFormState({currentState:"error",errorMessage:error.message})
+         setTimeout(() => {
+            setFormState({currentState:"idle",errorMessage:null})
+        }, 2000);
     }
 
     return (
@@ -59,7 +80,7 @@ const FrequentTraveler = () => {
                 <form className="flex flex-col basis-150">
                     <label className="mb-8">
                         <p className="tracking-6 mb-3 text-lg/9.5 font-semibold">Full Name</p>
-                        <input type="text" name="fullName" value={values.fullName} onChange={handleChange} minLength={2} maxLength={50} placeholder="John Doe" className={`placeholder:text-grey-400 w-full rounded-lg bg-white py-3.5 pl-4 transition-all duration-200 placeholder:font-light focus:outline-1 disabled:opacity-50 ${errors.fullName && "outline-red-500"}`} required />
+                        <input type="text" name="fullName" value={values.fullName} onChange={handleChange} minLength={2} maxLength={50} disabled={formState.currentState !== "idle"}  placeholder="John Doe" className={`placeholder:text-grey-400 w-full rounded-lg bg-white py-3.5 pl-4 transition-all duration-200 placeholder:font-light focus:outline-1 disabled:opacity-50 ${errors.fullName && "outline-red-500"}`} required />
                         <AnimatePresence>
 
                             {errors.fullName &&
@@ -76,7 +97,7 @@ const FrequentTraveler = () => {
                     </label>
                     <label className="mb-12">
                         <p className="tracking-6 mb-3 text-lg/9.5 font-semibold">Email</p>
-                        <input type="email" name="email" value={values.email} onChange={handleChange} minLength={5} maxLength={100} placeholder="email@example.com" className={`placeholder:text-grey-400 w-full rounded-lg bg-white py-3.5 pl-4 transition-all duration-200 placeholder:font-light focus:outline-1 disabled:opacity-50 ${errors.email && "outline-red"}`} required />
+                        <input type="email" name="email" value={values.email} onChange={handleChange} minLength={5} maxLength={100} disabled={formState.currentState !== "idle"} placeholder="email@example.com" className={`placeholder:text-grey-400 w-full rounded-lg bg-white py-3.5 pl-4 transition-all duration-200 placeholder:font-light focus:outline-1 disabled:opacity-50 ${errors.email && "outline-red"}`} required />
                         <AnimatePresence>
 
                             {errors.email && <motion.p className="text-red-500 pt-1 pl-0.5 text-sm"
@@ -89,7 +110,7 @@ const FrequentTraveler = () => {
                     </label>
                     <div className="flex flex-wrap item-center justify-between gap-8">
                         <label className="text-grey-800 flex cursor-pointer items-center gap-x-1.5">
-                            <button className="flex size-5 cursor-pointer items-center justify-center rounded-xs bg-white p-1 disabled:opacity-50" type="button" onClick={() => setIsChecked(!isChecked)}>
+                            <button className="flex size-5 cursor-pointer items-center justify-center rounded-xs bg-white p-1 disabled:opacity-50" disabled={formState.currentState !== "idle"}  type="button" onClick={() => setIsChecked(!isChecked)}>
                                 <Checkmark className={`size-2 transition-all duration-200 ${isChecked ? 'visible size-3 opacity-100' : 'invisible size-2 opacity-0'}`} />
                             </button>
                             <p className="text-sm tracking-[.03rem]">Agree to receive promotional email updates</p>

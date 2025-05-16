@@ -61,6 +61,27 @@ export type Database = {
         }
         Relationships: []
       }
+      Leads: {
+        Row: {
+          created_at: number
+          email: string
+          full_name: string
+          lead_id: string
+        }
+        Insert: {
+          created_at: number
+          email: string
+          full_name: string
+          lead_id?: string
+        }
+        Update: {
+          created_at?: number
+          email?: string
+          full_name?: string
+          lead_id?: string
+        }
+        Relationships: []
+      }
       Locations: {
         Row: {
           id: string
