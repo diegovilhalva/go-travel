@@ -27,8 +27,12 @@
 
   --tracking-6: 0.06rem;
 
+  /* custom reesponsive breakpoints we define */
+  --breakpoint-3xl: 109.375rem;
+  --breakpoint-mdlg: 50rem;
+
   /* all of the following is related to our loading spinner animation */
-  --animate-spinn: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  --animate-spinn: spinner 1.2s cubic-bezier(0.5,   0, 0.5, 1) infinite;
   --animate-spinn-45: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite -0.45s;
   --animate-spinn-30: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite -0.3s;
   --animate-spinn-15: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite -0.15s;

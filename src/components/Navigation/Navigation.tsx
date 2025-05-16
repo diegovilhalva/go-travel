@@ -1,15 +1,16 @@
-import { navigationLinks } from "../../utils/content"
-import BellIcon from "../Icons/BellIcon"
-import CaretUp from "../Icons/CaretUp"
-import Hamburger from "../Icons/Hamburger"
-import LogoIcon from "../Icons/LogoIcon"
-import SearchIcon from "../Icons/SearchIcon"
-import DesktopDropdown from "./DesktopDropdown"
+import { navigationLinks } from "../../utils/content";
 
+import LogoIcon from "../Icons/LogoIcon.tsx";
+import SearchIcon from "../Icons/SearchIcon.tsx";
+import CaretUp from "../Icons/CaretUp.tsx";
+import BellIcon from "../Icons/BellIcon.tsx";
 
-const Navigation = () => {
+import DesktopDropdown from "./DesktopDropdown.tsx";
+import Hamburger from "../Icons/Hamburger.tsx";
+
+export default function Navigation() {
   return (
-     <nav className="max-3xl:mb-10.5 m-auto mb-12 max-w-432 max-xl:mb-9 max-sm:mb-16">
+    <nav className="max-3xl:mb-10.5 m-auto mb-12 max-w-432 max-xl:mb-9 max-sm:mb-16">
       <div className="max-3xl:px-16 flex justify-between px-21.5 max-2xl:px-9 max-xl:px-4 max-lg:px-0">
         <a href="/" className="flex items-center gap-x-2.5 max-sm:gap-x-2">
           <LogoIcon className="size-13 max-xl:size-10.5 max-lg:size-9" />
@@ -45,11 +46,9 @@ const Navigation = () => {
             Join Now
           </button>
         </div>
-
         <Hamburger />
+
       </div>
     </nav>
-  )
+  );
 }
-
-export default Navigation
