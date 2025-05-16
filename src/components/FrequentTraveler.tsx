@@ -3,6 +3,7 @@ import Checkmark from "./Icons/Checkmark"
 import { useFormAndValidation } from "../hooks/useFormValidation"
 import { AnimatePresence, motion } from "motion/react"
 import useInsertLead from "../hooks/useInsertLead";
+import { logCustomEvent } from "../analytics";
 
 interface FormState {
     currentState: "idle" | "pending" | "success" | "error";
@@ -55,6 +56,7 @@ const FrequentTraveler = () => {
         setTimeout(() => {
             setFormState({currentState:"idle",errorMessage:null})
         }, 2000);
+        logFormSubmit("null")
     }
 
 
@@ -63,6 +65,18 @@ const FrequentTraveler = () => {
          setTimeout(() => {
             setFormState({currentState:"idle",errorMessage:null})
         }, 2000);
+        logFormSubmit("form submition error")
+    }
+
+    function logFormSubmit(error:string = ""){
+        logCustomEvent({
+            category:"user_engagement",
+            action:"form_submit",
+            eventName:"frequent_travelers",
+            customProps:{
+                errorMessage:error
+            }
+        })
     }
 
     return (

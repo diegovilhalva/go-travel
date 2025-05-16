@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ExploreMore from "./components/ExploreMore/ExploreMore";
+
 import Footer from "./components/Footer";
 import FrequentTraveler from "./components/FrequentTraveler";
 import Header from "./components/Header";
@@ -14,10 +15,18 @@ import Testimonials from "./components/Testimonials/Testimonials";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import MobileMenu from "./components/Navigation/MobileMenu";
 import MenuContextProvider from "./context/MobileMenuConext"
+import { useEffect } from "react";
+import { initGoogleAnalytics, logPageView } from "./analytics";
 
 const queryClient = new QueryClient()
 
+
 function App() {
+  useEffect(() => {
+    initGoogleAnalytics()
+    logPageView()
+    
+  }, [])
   return (
     <QueryClientProvider client={queryClient}>
       <MenuContextProvider>
