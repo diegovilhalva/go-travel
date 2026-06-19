@@ -1,5 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
-import { getBlogPost } from "../api/api";
+/*import { useQuery } from "@tanstack/react-query";
+//import { getBlogPost } from "../api/api";
 
 
 export default function useQueryBlogPosts() {
@@ -14,3 +14,4 @@ export default function useQueryBlogPosts() {
     isLoading
   }
 }
+*/
