@@ -1,4 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
+/*import { createClient } from "@supabase/supabase-js";
 import { BlogPost, Lead, Location } from "../utils/contentTypes";
 import { Database } from "./supabase";
 
@@ -65,4 +65,4 @@ export async function insertLead(lead:Lead){
     if (error) {
         throw new Error(`An error has occured while trying to insert new lead: ${error.name} `)
     }
-}
+}*/
