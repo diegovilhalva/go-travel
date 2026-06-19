@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { Lead } from "../utils/contentTypes";
-import { insertLead } from "../api/api";
+//import { insertLead } from "../api/api";
 
 interface useInsertLeadProps {
     onSuccess:() => void;
@@ -10,7 +10,7 @@ interface useInsertLeadProps {
 
 export default function useInsertLead({onError,onSuccess}:useInsertLeadProps) {
     const mutation = useMutation({
-        mutationFn:async (lead:Lead) => insertLead(lead),
+        mutationFn:async (lead:Lead) => (lead),
         onSuccess:onSuccess,
         onError:onError
     })
