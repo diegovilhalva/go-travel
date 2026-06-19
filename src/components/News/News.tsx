@@ -1,12 +1,13 @@
 import useQueryBlogPosts from "../../hooks/useQueryBlogPosts"
+import { blogPosts } from "../../utils/content"
 import Error from "../Error"
 import Spinner from "../Spinner"
 import BlogPost from "./BlogPost"
 
 
 const News = () => {
-  const {blogPosts,error,isLoading} = useQueryBlogPosts()
-  
+  const {error,isLoading} = useQueryBlogPosts()
+ 
  
   return (
     <section className="max-3xl:py-34 max-3xl:px-20 px-24 py-36 max-2xl:px-14 max-2xl:py-28 max-xl:px-10 max-xl:py-26 max-lg:px-6 max-lg:py-24 max-sm:px-4 max-sm:pb-12">

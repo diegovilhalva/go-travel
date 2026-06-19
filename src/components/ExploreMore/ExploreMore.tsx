@@ -6,9 +6,10 @@ import useQueryLocations from "../../hooks/useQueryLocations";
 
 import Error from "../Error";
 import Spinner from "../Spinner";
+import { locations } from "../../utils/content";
 
 export default function ExploreMore() {
-  const { locations, error, isLoading } = useQueryLocations();
+  const {  error, isLoading } = useQueryLocations();
 
   const [currIndex, setCurrIndex] = useState<number>(0);
 
