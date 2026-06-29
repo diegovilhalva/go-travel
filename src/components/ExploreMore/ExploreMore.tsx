@@ -19,7 +19,7 @@ const ExploreMore = () => {
                 <div className="flex items-end justify-between gap-y-33 max-sm:flex-wrap max-sm:gap-x-16 max-sm:gap-y-10">
                     <div className="">
                         <h2 className="tracking-6 max-3xl:text-[2.875rem] mb-4 text-[3.25rem] font-semibold max-2xl:text-[2.625rem] max-xl:text-[2.25rem] max-md:mb-3 max-sm:text-[2rem]">Explore More</h2>
-                        <p className="tracking-6 text-grey-700 max-3xl:text-[1.5rem] text-[1.75rem] font-light max-2xl:text-[1.375rem] max-xl:text-[1.25rem] max-md:text-lg max-sm:text-base"">Let's go on an adventure</p>
+                        <p className="tracking-6 text-grey-700 max-3xl:text-[1.5rem] text-[1.75rem] font-light max-2xl:text-[1.375rem] max-xl:text-[1.25rem] max-md:text-lg max-sm:text-base">Let's go on an adventure</p>
                     </div>
                     <div className="max-3xl:mb-1.5 max-3xl:gap-x-5 mb-2 flex gap-x-6 max-2xl:gap-x-4 max-xl:mb-0.5 max-sm:gap-x-3">
                         <button className="bg-grey-300 not-disabled:hover:bg-grey-400 flex size-18 cursor-pointer place-content-center rounded-full transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50 max-2xl:size-17 max-xl:size-16 max-sm:size-15 " onClick={handleLeftClick} disabled={currentIndex === 0} aria-label="arrow-left">
