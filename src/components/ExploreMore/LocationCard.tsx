@@ -18,7 +18,7 @@ export default function LocationCard({ location }: LocationCardProps) {
     >
       <div className="max-3xl:mb-7.5 relative mb-8 overflow-hidden rounded-3xl max-sm:mb-6.5">
         <img
-          className="max-mdlg:aspect-[361/327] transform transition-all duration-300 ease-in-out group-hover:scale-103"
+          className=" w-full max-mdlg:aspect-[361/327] transform transition-all duration-300 ease-in-out group-hover:scale-103"
           src={location.img}
           alt={location.alt}
         />
