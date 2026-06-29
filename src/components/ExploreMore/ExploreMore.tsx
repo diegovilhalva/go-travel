@@ -30,7 +30,7 @@ const ExploreMore = () => {
                         </button>
                     </div>
                 </div>
-                <ul className="mt-33 grid grid-cols-3 gap-x-29 gap-y-24">
+                <ul className="mt-33 grid grid-cols-1 lg:grid-cols-3 gap-x-29 gap-y-24">
                     {renderLocations.map((location) => (
                         <LocationCard location={location} key={location.id} />
                     ))}
