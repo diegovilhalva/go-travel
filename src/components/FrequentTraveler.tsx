@@ -56,7 +56,7 @@ const FrequentTraveler = () => {
                     </p>
                 </div>
                 <div className="bg-grey-500/40 block w-0.25 self-stretch" />
-                <form className="flex flex-col basis-150">
+                <form className="flex basis-150 flex-col">
                     <label className="mb-8">
                         <p className="tracking-6 mb-3 text-lg/9.5 font-semibold">Full Name</p>
                         <input type="text" name="fullName" value={values.fullName} onChange={handleChange} minLength={2} maxLength={50} placeholder="John Doe" className={`placeholder:text-grey-400 w-full rounded-lg bg-white py-3.5 pl-4 transition-all duration-200 placeholder:font-light focus:outline-1 disabled:opacity-50 ${errors.fullName && "outline-red-500"}`} required />
@@ -87,7 +87,7 @@ const FrequentTraveler = () => {
                             >{errors.email}</motion.p>}
                         </AnimatePresence>
                     </label>
-                    <div className="flex flex-wrap item-center justify-between gap-8">
+                    <div className="flex flex-wrap item-center justify-between gap-x-8 gap-y-8">
                         <label className="text-grey-800 flex cursor-pointer items-center gap-x-1.5">
                             <button className="flex size-5 cursor-pointer items-center justify-center rounded-xs bg-white p-1 disabled:opacity-50" type="button" onClick={() => setIsChecked(!isChecked)}>
                                 <Checkmark className={`size-2 transition-all duration-200 ${isChecked ? 'visible size-3 opacity-100' : 'invisible size-2 opacity-0'}`} />
